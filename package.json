@@ -31,7 +31,7 @@
     "pegjs": "^0.10.0"
   },
   "scripts": {
-    "test": "mocha test/**/*-test.js",
+    "test": "mocha test/**/*-test.js test/*-test.js",
     "watch": "mocha --watch test/**/*-test.js",
     "grammar-pegjs": "pegjs -o lib/pegjs/grammar.js lib/pegjs/grammar.pegjs",
     "grammar": "node bin/cli.js lib/grammar.pasukon lib/grammar.js",
