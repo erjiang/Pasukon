@@ -119,4 +119,18 @@ start
 
     expect(pasukon.parse('AB')).to.eq(2)
   })
+
+  it('collects the number 0', function () {
+      const pasukon = new Pasukon(`
+lex
+  match NUMBER /[0-9]+(?:\.[0-9]+)?/
+/lex
+
+start
+  | :NUMBER
+  |> 'return parseFloat($1)'
+  ;
+      `);
+      expect(pasukon.parse('0')).to.eql(0)
+    })
 })
