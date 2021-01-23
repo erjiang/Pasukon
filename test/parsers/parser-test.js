@@ -79,10 +79,31 @@ start
 
       expect(result.succeeded).to.eq(true)
       expect(result.remaining.peek('EOF')).to.eq(true)
-    })
+    });
   })
 
   describe('code eval', function () {
+
+    it('doesn\'t exec code when match fails', function () {
+      // should not execute return $.foo.length because it does not match :A,
+      // otherwise it will throw 'cannot get .length of null'
+      parse(`
+statement1
+  | :A as :foo
+  |> 'return $.foo.length'
+  | statement2
+  ;
+
+statement2
+  | :B
+  ;
+
+start
+  | statement1
+  ;
+`, 'B');
+    })
+
     it('evals with binary call', function () {
       const result = parse(`
 statement
