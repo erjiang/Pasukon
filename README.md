@@ -1,3 +1,8 @@
+**Note**: This is a fork of https://github.com/gosukiwi/Pasukon/ with some bug
+fixes and changes. There is a compatibility-breaking change to many0/many1 in
+how results are assembled.
+
+
 # Pasukon
 Pasukon generates parsers using an easy to learn grammar. It's based on [parser
 combinators](https://en.wikipedia.org/wiki/Parser_combinator), and also
